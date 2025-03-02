@@ -17,7 +17,7 @@ Before running this scraper, make sure you have the following installed on your 
 
 Follow these steps to get the scraper up and running on your local machine.
 
-###Step 1: Install Dependencies
+### Step 1: Install Dependencies
 
 Make sure you have Node.js installed, then run the following command to install the necessary dependencies:
 
@@ -25,7 +25,7 @@ npm install
 
 This will install all required libraries, including Puppeteer, and set up your project.
 
-###Step 2: Start the Application
+### Step 2: Start the Application
 
 After the dependencies are installed, you can start the application by running:
 
@@ -33,12 +33,12 @@ npm start
 
 This command will start the server on http://localhost:3000. Make sure you keep this terminal window running.
 
-###Step 3: Wait a Minute
+### Step 3: Wait a Minute
 
 ---
 Give the scraper a minute or two to fully fetch and compile the latest news articles. Puppeteer will visit the news sites, scrape the articles, and prepare them for display.
 ---
 
-###Step 4: View the Results
+### Step 4: View the Results
 
 After the initial setup, you can visit http://localhost:3000 in your browser to enjoy a curated list of the latest news articles from multiple news platforms.
