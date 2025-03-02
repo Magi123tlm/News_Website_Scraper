@@ -35,9 +35,7 @@ This command will start the server on http://localhost:3000. Make sure you keep 
 
 ### Step 3: Wait a Minute
 
----
 Give the scraper a minute or two to fully fetch and compile the latest news articles. Puppeteer will visit the news sites, scrape the articles, and prepare them for display.
----
 
 ### Step 4: View the Results
 
