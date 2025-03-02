@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News Scraper</title>
+    <style>
+      .loader {
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: spin 2s linear infinite;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -30px;
+        margin-top: -30px;
+        z-index: 9999;
+      }
+
+      /* Animation for the loader */
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* To hide the content initially */
+      #content {
+        display: none;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      h1 {
+        text-align: center;
+      }
+      .section {
+        margin-bottom: 30px;
+      }
+      .article {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+      .article img {
+        max-width: 100px;
+        margin-right: 10px;
+        vertical-align: middle;
+      }
+      .article h3 {
+        margin: 0;
+      }
+      .article p {
+        font-size: 0.9em;
+        color: #555;
+      }
+      .article a {
+        color: #007bff;
+        text-decoration: none;
+      }
+      .article a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading spinner -->
+    <div id="loader" class="loader"></div>
+
+    <!-- Main content that will be shown after loading -->
+    <div id="content">
+      <h1>News Articles</h1>
+      <div class="section">
+        <h2>Times Of India</h2>
+        <% if (articles['Times of India'] && articles['Times of India'].length >
+        0) { %> <% articles['Times of India'].forEach(article => { %>
+        <div class="article">
+          <% if (article.imageUrl) { %>
+          <img src="<%= article.imageUrl %>" alt="Article Image" />
+          <% } %>
+          <div>
+            <h3><%= article.title %></h3>
+            <p>
+              <a href="<%= article.articleUrl %>" target="_blank">Read more</a>
+            </p>
+          </div>
+        </div>
+        <% }); %> <% } else { %>
+        <p>No articles found.</p>
+        <% } %>
+      </div>
+
+      <div class="section">
+        <h2>Indian Express</h2>
+        <% if (articles['Indian Express'] && articles['Indian Express'].length >
+        0) { %> <% articles['Indian Express'].forEach(article => { %>
+        <div class="article">
+          <div>
+            <h3><%= article.title %></h3>
+            <p>
+              <a href="<%= article.articleUrl %>" target="_blank">Read more</a>
+            </p>
+          </div>
+        </div>
+        <% }); %> <% } else { %>
+        <p>No articles found.</p>
+        <% } %>
+      </div>
+
+      <div class="section">
+        <h2>Hindustan Times</h2>
+        <% if (articles['Hindustan Times'] && articles['Hindustan Times'].length
+        > 0) { %> <% articles['Hindustan Times'].forEach(article => { %>
+        <div class="article">
+          <% if (article.imageUrl) { %>
+          <img src="<%= article.imageUrl %>" alt="Article Image" />
+          <% } %>
+          <div>
+            <h3><%= article.title %></h3>
+            <p><%= article.author ? "By " + article.author : "" %></p>
+            <p><%= article.date ? "Published on " + article.date : "" %></p>
+            <p>
+              <a href="<%= article.articleUrl %>" target="_blank">Read more</a>
+            </p>
+          </div>
+        </div>
+        <% }); %> <% } else { %>
+        <p>No articles found.</p>
+        <% } %>
+      </div>
+    </div>
+
+    <script>
+      // This script will hide the loader and display the content after the page has loaded.
+      window.onload = function () {
+        document.getElementById("loader").style.display = "none"; // Hide the loader
+        document.getElementById("content").style.display = "block"; // Show the content
+      };
+    </script>
+  </body>
+</html>
